@@ -1,6 +1,6 @@
 # DemoAKS-Terraform
 
-# AKC + ACR with Managed Identity
+# AKS + ACR with Managed Identity
 
 This template deploys an Azure Kubernetes Service cluster with a user-assigned Identity along with an Azure Container Registry.  The identity of the AKS cluster has an assigned reader role to the ACR instance so AKS can pull containers without needing to have a Docker username and password configured.
 
