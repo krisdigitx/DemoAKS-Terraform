@@ -15,7 +15,7 @@ This template deploys an Azure Kubernetes Service cluster with a user-assigned I
 | dns_prefix | A DNS Prefix to use in the AKS Cluster |
 
 
-## Create backend storage for terraform state
+### Create backend storage for terraform state
 
 ```
 #!/bin/bash
@@ -51,20 +51,20 @@ kubectl get all -n argocd
 kubectl port-forward svc/argocd-server -n argocd 8080:443
 ```
 
-# Attach ACR to AKS using using acr-name
+### Attach ACR to AKS using using acr-name
 ```
 az aks update -n demo-devApp-aks -g demo-devApp-mongoose-dev-rg --attach-acr ddademodevAppmongooseacr
 ```
 
 OR
 
-# Attach using acr-resource-id
+### Attach using acr-resource-id
 ```
 az aks update -n myAKSCluster -g myResourceGroup --attach-acr <acr-resource-id>
 ```
 
 
-Reference:
+### Reference:
 https://github.com/MicrosoftDocs/azure-dev-docs/blob/main/articles/terraform/store-state-in-azure-storage.md
 https://github.com/Azure/terraform/blob/master/quickstart/201-aks-acr-identity/main.tf
 https://medium.com/ascentic-technology/github-action-deploy-applications-to-aks-7598668f8ee1
