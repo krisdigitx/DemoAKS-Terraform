@@ -43,6 +43,26 @@ ACCOUNT_KEY=$(az storage account keys list --resource-group $RESOURCE_GROUP_NAME
 export ARM_ACCESS_KEY=$ACCOUNT_KEY
 ```
 
+### Install ArgoCD on AKS
+```
+kubectl create namespace argocd
+kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
+kubectl get all -n argocd
+kubectl port-forward svc/argocd-server -n argocd 8080:443
+```
+
+# Attach ACR to AKS using using acr-name
+```
+az aks update -n demo-devApp-aks -g demo-devApp-mongoose-dev-rg --attach-acr ddademodevAppmongooseacr
+```
+
+OR
+
+# Attach using acr-resource-id
+```
+az aks update -n myAKSCluster -g myResourceGroup --attach-acr <acr-resource-id>
+```
+
 
 Reference:
 https://github.com/MicrosoftDocs/azure-dev-docs/blob/main/articles/terraform/store-state-in-azure-storage.md
